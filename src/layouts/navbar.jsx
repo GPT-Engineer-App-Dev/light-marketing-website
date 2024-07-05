@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { CircleUser, Menu, Package2 } from "lucide-react";
+import { CircleUser, Menu, Lightbulb, Facebook, Twitter, Instagram } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
 import { navItems } from "../App";
 
@@ -24,6 +24,7 @@ const Layout = () => {
       <main className="flex-grow overflow-auto">
         <Outlet />
       </main>
+      <Footer />
     </div>
   );
 };
@@ -34,8 +35,8 @@ const DesktopNav = () => (
       to="/"
       className="flex items-center gap-2 text-lg font-semibold md:text-base"
     >
-      <Package2 className="h-6 w-6" />
-      <span className="sr-only">Acme Inc</span>
+      <Lightbulb className="h-6 w-6" />
+      <span className="sr-only">Lighting Business</span>
     </NavItem>
     {navItems.map((item) => (
       <NavItem key={item.to} to={item.to}>
@@ -59,8 +60,8 @@ const MobileNav = () => (
           to="/"
           className="flex items-center gap-2 text-lg font-semibold"
         >
-          <Package2 className="h-6 w-6" />
-          <span className="sr-only">Acme Inc</span>
+          <Lightbulb className="h-6 w-6" />
+          <span className="sr-only">Lighting Business</span>
         </NavItem>
         {navItems.map((item) => (
           <NavItem key={item.to} to={item.to}>
@@ -106,6 +107,27 @@ const NavItem = ({ to, children, className }) => (
   >
     {children}
   </NavLink>
+);
+
+const Footer = () => (
+  <footer className="border-t bg-background py-4 text-center">
+    <div className="container mx-auto">
+      <div className="flex justify-center space-x-4 mb-4">
+        <a href="#" aria-label="Facebook">
+          <Facebook className="h-6 w-6" />
+        </a>
+        <a href="#" aria-label="Twitter">
+          <Twitter className="h-6 w-6" />
+        </a>
+        <a href="#" aria-label="Instagram">
+          <Instagram className="h-6 w-6" />
+        </a>
+      </div>
+      <p className="text-sm text-muted-foreground">
+        &copy; {new Date().getFullYear()} Lighting Business. All rights reserved.
+      </p>
+    </div>
+  </footer>
 );
 
 export default Layout;
